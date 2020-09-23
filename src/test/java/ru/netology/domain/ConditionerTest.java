@@ -8,97 +8,36 @@ class ConditionerTest {
 
 
     @Test
-    void increaseCurrentTemperatureInNormalCondition() {
+    void shouldIncreaseCurrentTemperatureInNormalCondition() {
         Conditioner conditioner = new Conditioner();
+        conditioner.increaseCurrentTemperature();
+        assertEquals(23, conditioner.getCurrentTemperature());
+    }
+
+    @Test
+
+    void shouldIncreaseCurrentTemperatureInHeatCondition() {
+        Conditioner conditioner = new Conditioner();
+        conditioner.setCurrentTemperature(35);
         conditioner.increaseCurrentTemperature();
         assertEquals(35, conditioner.getCurrentTemperature());
     }
 
     @Test
-//new
-    void increaseCurrentTemperatureInHeatCondition() {
+    void shouldDecreaseCurrentTemperatureInUsualConditions() {
         Conditioner conditioner = new Conditioner();
-        conditioner.setCurrentTemperature(40);
-        conditioner.increaseCurrentTemperature();
-        assertEquals(40, conditioner.getCurrentTemperature());
+        conditioner.decreaseCurrentTemperature();
+        assertEquals(21, conditioner.getCurrentTemperature());
     }
 
     @Test
-    void decreaseCurrentTemperatureInUsualConditions() {
+
+    void shouldDecreaseCurrentTemperatureInColdConditions() {
         Conditioner conditioner = new Conditioner();
+        conditioner.setCurrentTemperature(16);
         conditioner.decreaseCurrentTemperature();
         assertEquals(16, conditioner.getCurrentTemperature());
     }
-
-    @Test
-//new
-    void decreaseCurrentTemperatureInColdConditions() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setCurrentTemperature(-15);
-        conditioner.decreaseCurrentTemperature();
-        assertEquals(-15, conditioner.getCurrentTemperature());
-    }
-
-
-    @Test
-    void getMaxTemperature() {
-        Conditioner conditioner = new Conditioner();
-        assertEquals(35, conditioner.getMaxTemperature());
-
-
-    }
-
-    @Test
-    void setMaxTemperature() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setMaxTemperature(30);
-        assertEquals(30, conditioner.getMaxTemperature());
-
-    }
-
-    @Test
-    void getMinTemperature() {
-        Conditioner conditioner = new Conditioner();
-        assertEquals(16, conditioner.getMinTemperature());
-    }
-
-    @Test
-    void setMinTemperature() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setMinTemperature(2);
-        assertEquals(2, conditioner.getMinTemperature());
-
-
-    }
-
-    @Test
-    void getCurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
-        assertEquals(22, conditioner.getCurrentTemperature());
-    }
-
-    @Test
-    void setCurrentTemperature() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setCurrentTemperature(24);
-        assertEquals(24, conditioner.getCurrentTemperature());
-    }
-
-
-    @Test
-    void shouldBeOn() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setOn(true);
-        assertEquals(true, conditioner.isOn());
-    }
-    @Test
-    void shouldBeOff() {
-        Conditioner conditioner = new Conditioner();
-        conditioner.setOn(false);
-        assertEquals(false, conditioner.isOn());
-    }
-
-
 
 }
 
